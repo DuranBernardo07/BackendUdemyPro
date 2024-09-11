@@ -6,10 +6,10 @@
     <class>plaxi.backend.entity.Persona</class>
     <class>plaxi.backend.entity.Rol</class>
     <properties>
-      <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5433/PlaxiDB"/>
-      <property name="javax.persistence.jdbc.user" value="postgres"/>
-      <property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver"/>
-      <property name="javax.persistence.jdbc.password" value="jose"/>
+      <property name="jakarta.persistence.jdbc.url" value="jdbc:postgresql://localhost:5433/PlaxiDB"/>
+      <property name="jakarta.persistence.jdbc.user" value="postgres"/>
+      <property name="jakarta.persistence.jdbc.driver" value="org.postgresql.Driver"/>
+      <property name="jakarta.persistence.jdbc.password" value="jose"/>
     </properties>
   </persistence-unit>
 </persistence>

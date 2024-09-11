@@ -1,0 +1,14 @@
+plaxi\backend\repository\PersonaRepository.class
+plaxi\backend\service\UsuarioService.class
+plaxi\backend\BackendApplication.class
+plaxi\backend\controller\UsuarioController.class
+plaxi\backend\dto\RolDto.class
+plaxi\backend\service\AuthService.class
+plaxi\backend\entity\Usuario.class
+plaxi\backend\dto\PersonaDto.class
+plaxi\backend\repository\RolRepository.class
+plaxi\backend\controller\AuthController.class
+plaxi\backend\entity\Rol.class
+plaxi\backend\dto\UsuarioDto.class
+plaxi\backend\entity\Persona.class
+plaxi\backend\repository\UsuarioRepository.class
