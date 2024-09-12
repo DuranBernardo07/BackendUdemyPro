@@ -9,6 +9,9 @@ import plaxi.backend.entity.Usuario;
 import plaxi.backend.repository.PersonaRepository;
 import plaxi.backend.repository.UsuarioRepository;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 @Service
 public class PerfilService {
 
@@ -17,6 +20,27 @@ public class PerfilService {
 
     @Autowired
     private PersonaRepository personaRepository;
+
+    // Obtener todos los usuarios
+    public List<PerfilDto> getAllProfiles() {
+        List<Usuario> usuarios = usuarioRepository.findAll();
+
+        // Convertir lista de Usuario a lista de PerfilDto
+        return usuarios.stream().map(usuario -> {
+            Persona persona = usuario.getPersonaId();
+            return new PerfilDto(
+                    usuario.getIdUsuario(),
+                    usuario.getUsername(),
+                    usuario.getGmail(),
+                    usuario.isStatus(),
+                    persona.getNombre(),
+                    persona.getPrimerApellido(),
+                    persona.getSegundoApellido(),
+                    persona.getTelefono(),
+                    persona.getCi()
+            );
+        }).collect(Collectors.toList());
+    }
 
     // Obtener el perfil del usuario (incluyendo los datos de persona)
     public PerfilDto getProfile(Long idUsuario) throws Exception {

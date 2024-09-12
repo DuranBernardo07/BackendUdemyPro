@@ -5,36 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b31b93c9-f966-4184-865c-4048a9f6a392" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/plaxi/backend/dto/RegisterRequestDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/plaxi/backend/dto/ResponseDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/plaxi/backend/repository/PersonaRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/plaxi/backend/repository/RolRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/plaxi/backend/entity/Persona.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/plaxi/backend/entity/Persona.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/plaxi/backend/entity/Rol.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/plaxi/backend/entity/Rol.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/plaxi/backend/entity/Usuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/plaxi/backend/entity/Usuario.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/plaxi/backend/repository/UsuarioRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/plaxi/backend/repository/UsuarioRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/plaxi/backend/service/PerfilService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/plaxi/backend/service/PerfilService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/META-INF/persistence.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/META-INF/persistence.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/plaxi/backend/dto/PersonaDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/plaxi/backend/dto/PersonaDto.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/plaxi/backend/dto/RolDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/plaxi/backend/dto/RolDto.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/plaxi/backend/dto/UsuarioDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/plaxi/backend/dto/UsuarioDto.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/plaxi/backend/entity/Persona.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/plaxi/backend/entity/Persona.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/plaxi/backend/entity/Persona_.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/plaxi/backend/entity/Rol.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/plaxi/backend/entity/Rol.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/plaxi/backend/entity/Rol_.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/plaxi/backend/entity/Usuario.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/plaxi/backend/entity/Usuario.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/plaxi/backend/entity/Usuario_.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/plaxi/backend/repository/UsuarioRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/plaxi/backend/repository/UsuarioRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/generated-sources/annotations/plaxi/backend/entity/Persona_.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/generated-sources/annotations/plaxi/backend/entity/Rol_.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/generated-sources/annotations/plaxi/backend/entity/Usuario_.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,26 +37,26 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "Spring Boot.BackendApplication.executor": "Run",
-    "dart.analysis.tool.window.visible": "false",
-    "git-widget-placeholder": "main",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "D:/TallerSoftware/Plaxi-Backend",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;Spring Boot.BackendApplication.executor&quot;: &quot;Run&quot;,
+    &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/TallerSoftware/Plaxi-Backend&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="BackendApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="backend" />
@@ -110,7 +83,8 @@
       <option name="presentableId" value="Default" />
       <updated>1726021253611</updated>
       <workItem from="1726021254655" duration="618000" />
-      <workItem from="1726062848603" duration="7036000" />
+      <workItem from="1726062848603" duration="7274000" />
+      <workItem from="1726144238696" duration="307000" />
     </task>
     <servers />
   </component>

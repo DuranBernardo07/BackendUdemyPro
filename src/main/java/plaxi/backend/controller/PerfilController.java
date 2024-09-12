@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.*;
 import plaxi.backend.dto.PerfilDto;
 import plaxi.backend.service.PerfilService;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/api/perfil")
 public class PerfilController {
@@ -18,6 +20,22 @@ public class PerfilController {
 
     @Autowired
     private PerfilService perfilService;
+
+    // Mostrar todos los perfiles
+    @GetMapping("/all")
+    public ResponseEntity<List<PerfilDto>> getAllProfiles() {
+        logger.info("Solicitud para obtener todos los perfiles de usuarios");
+
+        try {
+            List<PerfilDto> usuarios = perfilService.getAllProfiles();
+            logger.info("Perfiles de usuarios obtenidos exitosamente, total: {}", usuarios.size());
+            return ResponseEntity.ok(usuarios);
+        } catch (Exception e) {
+            logger.error("Error al obtener los perfiles de usuarios: {}", e.getMessage());
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
+        }
+    }
+
 
     // Obtener perfil por ID de usuario
     @GetMapping("/{idUsuario}")
