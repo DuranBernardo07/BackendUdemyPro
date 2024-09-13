@@ -75,7 +75,7 @@ public class PerfilController {
         try {
             perfilService.deleteProfile(idUsuario);
             logger.info("Perfil borrado lógicamente exitosamente para el usuario con ID: {}", idUsuario);
-            return ResponseEntity.noContent().build();
+            return ResponseEntity.status(200).build();
         } catch (Exception e) {
             logger.error("Error al borrar lógicamente el perfil del usuario con ID: {} - {}", idUsuario, e.getMessage());
             return ResponseEntity.status(HttpStatus.NOT_FOUND).build();

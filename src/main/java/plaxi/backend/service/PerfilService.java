@@ -44,11 +44,19 @@ public class PerfilService {
 
     // Obtener el perfil del usuario (incluyendo los datos de persona)
     public PerfilDto getProfile(Long idUsuario) throws Exception {
+        // Buscar al usuario por ID
         Usuario usuario = usuarioRepository.findById(idUsuario)
                 .orElseThrow(() -> new Exception("Usuario no encontrado"));
 
+        // Verificar si el status es false (borrado lógico)
+        if (!usuario.isStatus()) {
+            throw new Exception("El usuario ha sido desactivado");
+        }
+
+        // Obtener los datos de la persona asociada al usuario
         Persona persona = usuario.getPersonaId();
 
+        // Retornar el DTO con la información del perfil
         return new PerfilDto(
             usuario.getIdUsuario(),
             usuario.getUsername(),
@@ -61,6 +69,7 @@ public class PerfilService {
             persona.getCi()
         );
     }
+
 
     // Actualizar el perfil del usuario (incluyendo datos de persona)
     public PerfilDto updateProfile(Long idUsuario, PerfilDto perfilDto) throws Exception {
@@ -76,6 +85,7 @@ public class PerfilService {
         usuarioRepository.save(usuario);
 
         // Actualizar datos de la persona
+        persona.setIdPersona(perfilDto.getIdUsuario());
         persona.setNombre(perfilDto.getNombre());
         persona.setPrimerApellido(perfilDto.getPrimerApellido());
         persona.setSegundoApellido(perfilDto.getSegundoApellido());
