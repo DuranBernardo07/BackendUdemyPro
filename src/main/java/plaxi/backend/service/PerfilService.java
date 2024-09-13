@@ -21,11 +21,10 @@ public class PerfilService {
     @Autowired
     private PersonaRepository personaRepository;
 
-    // Obtener todos los usuarios
     public List<PerfilDto> getAllProfiles() {
-        List<Usuario> usuarios = usuarioRepository.findAll();
 
-        // Convertir lista de Usuario a lista de PerfilDto
+        List<Usuario> usuarios = usuarioRepository.findAllByStatusTrue();
+
         return usuarios.stream().map(usuario -> {
             Persona persona = usuario.getPersonaId();
             return new PerfilDto(
@@ -41,6 +40,7 @@ public class PerfilService {
             );
         }).collect(Collectors.toList());
     }
+
 
     // Obtener el perfil del usuario (incluyendo los datos de persona)
     public PerfilDto getProfile(Long idUsuario) throws Exception {

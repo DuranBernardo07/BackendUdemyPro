@@ -76,5 +76,15 @@ public class AuthController {
             return ResponseEntity.status(500).body(response);
         }
     }
+
+    @PostMapping("/reset-password")
+    public ResponseEntity<ResponseDto<Void>> resetPassword(@RequestParam String email) {
+        try {
+            authService.resetPassword(email);
+            return ResponseEntity.ok(new ResponseDto<>("La nueva contraseña ha sido enviada a tu correo", null, true));
+        } catch (Exception e) {
+            return ResponseEntity.status(400).body(new ResponseDto<>(e.getMessage(), null, false));
+        }
+    }
 }
 

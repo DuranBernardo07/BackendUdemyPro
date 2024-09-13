@@ -2,6 +2,8 @@ package plaxi.backend.service;
 
 import org.mindrot.jbcrypt.BCrypt;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mail.SimpleMailMessage;
+import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
 import plaxi.backend.dto.PersonaDto;
 import plaxi.backend.dto.UsuarioDto;
@@ -11,6 +13,8 @@ import plaxi.backend.repository.UsuarioRepository;
 import plaxi.backend.repository.RolRepository;
 import plaxi.backend.repository.PersonaRepository;
 import jakarta.security.auth.message.AuthException;
+
+import java.util.Optional;
 
 @Service
 public class AuthService {
@@ -23,6 +27,9 @@ public class AuthService {
 
     @Autowired
     private PersonaRepository personaRepository;
+
+    @Autowired
+    private JavaMailSender mailSender;
 
     public Usuario registerUser(UsuarioDto usuarioDto, PersonaDto personaDto) throws AuthException {
         if (usuarioRepository.findByUsername(usuarioDto.getUsername()).isPresent()) {
@@ -61,5 +68,41 @@ public class AuthService {
         }
 
         return usuario;
+    }
+
+    // Método para generar una nueva contraseña y enviarla por correo
+    public void resetPassword(String email) throws Exception {
+        // Buscar el usuario por email
+        Optional<Usuario> usuarioOptional = usuarioRepository.findByGmail(email);
+        if (usuarioOptional.isPresent()) {
+            Usuario usuario = usuarioOptional.get();
+
+            // Generar una nueva contraseña
+            String newPassword = PasswordGenerator.generatePassword();
+
+            // Encriptar la nueva contraseña
+            String encryptedPassword = BCrypt.hashpw(newPassword, BCrypt.gensalt());
+
+            // Actualizar la contraseña del usuario
+            usuario.setPassword(encryptedPassword);
+            usuarioRepository.save(usuario);
+
+            // Enviar la nueva contraseña por correo electrónico
+            sendEmailWithNewPassword(usuario.getGmail(), newPassword);
+
+        } else {
+            throw new Exception("No se encontró un usuario con ese email.");
+        }
+    }
+
+    // Método para enviar el correo con la nueva contraseña
+    private void sendEmailWithNewPassword(String email, String newPassword) {
+        SimpleMailMessage message = new SimpleMailMessage();
+        message.setTo(email);
+        message.setSubject("Restablecimiento de contraseña");
+        message.setText("Tu nueva contraseña es: " + newPassword + "\nPor favor, cámbiala después de iniciar sesión.");
+
+        // Enviar el correo
+        mailSender.send(message);
     }
 }

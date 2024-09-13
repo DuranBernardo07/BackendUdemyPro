@@ -5,9 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b31b93c9-f966-4184-865c-4048a9f6a392" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/plaxi/backend/service/PasswordGenerator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/plaxi/backend/controller/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/plaxi/backend/controller/AuthController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/plaxi/backend/repository/UsuarioRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/plaxi/backend/repository/UsuarioRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/plaxi/backend/service/AuthService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/plaxi/backend/service/AuthService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/plaxi/backend/service/PerfilService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/plaxi/backend/service/PerfilService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/plaxi/backend/controller/PerfilController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/plaxi/backend/controller/PerfilController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/plaxi/backend/dto/ResponseDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/plaxi/backend/dto/ResponseDto.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/plaxi/backend/repository/UsuarioRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/plaxi/backend/repository/UsuarioRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/plaxi/backend/service/PerfilService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/plaxi/backend/service/PerfilService.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,7 +55,7 @@
     &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/TallerSoftware/Plaxi-Backend&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/trabajo/Luis/restaurante&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -84,7 +91,9 @@
       <updated>1726021253611</updated>
       <workItem from="1726021254655" duration="618000" />
       <workItem from="1726062848603" duration="7274000" />
-      <workItem from="1726144238696" duration="307000" />
+      <workItem from="1726144238696" duration="969000" />
+      <workItem from="1726151121731" duration="147000" />
+      <workItem from="1726232709199" duration="2031000" />
     </task>
     <servers />
   </component>
