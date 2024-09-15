@@ -7,6 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import plaxi.backend.dto.ActualizarPerfilDto;
 import plaxi.backend.dto.PerfilDto;
 import plaxi.backend.service.PerfilService;
 
@@ -54,11 +55,11 @@ public class PerfilController {
 
     // Actualizar perfil
     @PutMapping("/{idUsuario}")
-    public ResponseEntity<PerfilDto> updateProfile(@PathVariable Long idUsuario, @RequestBody PerfilDto perfilDto) {
+    public ResponseEntity<ActualizarPerfilDto> updateProfile(@PathVariable Long idUsuario, @RequestBody ActualizarPerfilDto perfilDto) {
         logger.info("Solicitud para actualizar el perfil del usuario con ID: {}", idUsuario);
 
         try {
-            PerfilDto perfilActualizado = perfilService.updateProfile(idUsuario, perfilDto);
+            ActualizarPerfilDto perfilActualizado = perfilService.updateProfile(idUsuario, perfilDto);
             logger.info("Perfil actualizado exitosamente para el usuario con ID: {}", idUsuario);
             return ResponseEntity.ok(perfilActualizado);
         } catch (Exception e) {
@@ -66,6 +67,7 @@ public class PerfilController {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
         }
     }
+
 
     // Borrado lógico del perfil
     @DeleteMapping("/{idUsuario}")

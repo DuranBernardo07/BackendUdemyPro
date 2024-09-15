@@ -3,6 +3,7 @@ package plaxi.backend.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import plaxi.backend.dto.ActualizarPerfilDto;
 import plaxi.backend.dto.PerfilDto;
 import plaxi.backend.entity.Persona;
 import plaxi.backend.entity.Usuario;
@@ -72,20 +73,24 @@ public class PerfilService {
 
 
     // Actualizar el perfil del usuario (incluyendo datos de persona)
-    public PerfilDto updateProfile(Long idUsuario, PerfilDto perfilDto) throws Exception {
+    public ActualizarPerfilDto updateProfile(Long idUsuario, ActualizarPerfilDto perfilDto) throws Exception {
+        // Buscar al usuario por ID
         Usuario usuario = usuarioRepository.findById(idUsuario)
                 .orElseThrow(() -> new Exception("Usuario no encontrado"));
 
-        Persona persona = usuario.getPersonaId();
+        // Verificar si el usuario ha sido "borrado lógicamente" (status false)
+        if (!usuario.isStatus()) {
+            throw new Exception("El usuario ha sido desactivado y no se puede actualizar.");
+        }
 
         // Actualizar datos del usuario
         usuario.setUsername(perfilDto.getUsername());
         usuario.setGmail(perfilDto.getGmail());
-        // Omitir cambiar la contraseña aquí por razones de seguridad, debería hacerse en otro proceso
+        // Evitar cambiar el status y la contraseña desde aquí
         usuarioRepository.save(usuario);
 
-        // Actualizar datos de la persona
-        persona.setIdPersona(perfilDto.getIdUsuario());
+        // Obtener la persona asociada y actualizar sus datos
+        Persona persona = usuario.getPersonaId();
         persona.setNombre(perfilDto.getNombre());
         persona.setPrimerApellido(perfilDto.getPrimerApellido());
         persona.setSegundoApellido(perfilDto.getSegundoApellido());
@@ -93,8 +98,10 @@ public class PerfilService {
         persona.setCi(perfilDto.getCi());
         personaRepository.save(persona);
 
+        // Retornar el DTO actualizado
         return perfilDto;
-    }
+    }   
+
 
     // Borrado lógico del perfil (solo cambia el estado del usuario a falso)
     public void deleteProfile(Long idUsuario) throws Exception {
