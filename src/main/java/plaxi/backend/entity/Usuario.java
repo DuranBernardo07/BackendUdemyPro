@@ -10,34 +10,47 @@ import jakarta.persistence.*;
 public class Usuario implements Serializable {
 
     private static final long serialVersionUID = 1L;
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
     @Column(name = "id_usuario")
     private Long idUsuario;
+
     @Basic(optional = false)
     @Column(name = "username")
     private String username;
+
     @Basic(optional = false)
     @Column(name = "password")
     private String password;
+
     @Basic(optional = false)
     @Column(name = "gmail")
     private String gmail;
+
     @Basic(optional = false)
     @Column(name = "status")
     private boolean status;
+
     @JoinColumn(name = "persona_id", referencedColumnName = "id_persona")
     @ManyToOne(optional = false, fetch = FetchType.LAZY)
     @JsonBackReference
     private Persona personaId;
+
     @JoinColumn(name = "rol_id", referencedColumnName = "id_rol")
     @ManyToOne(optional = false, fetch = FetchType.LAZY)
     private Rol rolId;
 
+    // Relación con la imagen de perfil, puede ser nula
+    @JoinColumn(name = "imagen_perfil_id", referencedColumnName = "s3_object_id", nullable = true)
+    @ManyToOne(fetch = FetchType.LAZY)
+    private S3Object imagenPerfil;  // Este campo puede ser null inicialmente
+
     public Usuario() {
     }
 
+    // Constructor sin imagen de perfil
     public Usuario(Long idUsuario, String username, String password, String gmail, boolean status, Persona personaId, Rol rolId) {
         this.idUsuario = idUsuario;
         this.username = username;
@@ -47,6 +60,20 @@ public class Usuario implements Serializable {
         this.personaId = personaId;
         this.rolId = rolId;
     }
+
+    // Constructor con imagen de perfil
+    public Usuario(Long idUsuario, String username, String password, String gmail, boolean status, Persona personaId, Rol rolId, S3Object imagenPerfil) {
+        this.idUsuario = idUsuario;
+        this.username = username;
+        this.password = password;
+        this.gmail = gmail;
+        this.status = status;
+        this.personaId = personaId;
+        this.rolId = rolId;
+        this.imagenPerfil = imagenPerfil;
+    }
+
+    // Getters y Setters
 
     public Long getIdUsuario() {
         return idUsuario;
@@ -102,5 +129,13 @@ public class Usuario implements Serializable {
 
     public void setRolId(Rol rolId) {
         this.rolId = rolId;
+    }
+
+    public S3Object getImagenPerfil() {
+        return imagenPerfil;
+    }
+
+    public void setImagenPerfil(S3Object imagenPerfil) {
+        this.imagenPerfil = imagenPerfil;
     }
 }

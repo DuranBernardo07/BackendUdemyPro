@@ -7,8 +7,7 @@ spring:
   datasource:
     url: jdbc:postgresql://localhost:5433/PlaxiDB
     username: postgres
-#    password: jose
-    password: admin1234
+    password: jose
     driver-class-name: org.postgresql.Driver
   jpa:
     hibernate:
@@ -33,3 +32,13 @@ spring:
             required: true
           ssl:
             trust: smtp.gmail.com
+  servlet:
+    multipart:
+      max-file-size: 1GB
+      max-request-size: 1GB
+minio:
+  url: http://localhost:9000
+  access-key: minio
+  secret-key: minio1234
+  bucket-name: fotoperfil
+

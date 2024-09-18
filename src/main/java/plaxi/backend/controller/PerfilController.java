@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
+import org.springframework.web.multipart.MultipartFile;
 import plaxi.backend.dto.ActualizarPerfilDto;
 import plaxi.backend.dto.PerfilDto;
 import plaxi.backend.service.PerfilService;
@@ -26,7 +26,6 @@ public class PerfilController {
     @GetMapping("/all")
     public ResponseEntity<List<PerfilDto>> getAllProfiles() {
         logger.info("Solicitud para obtener todos los perfiles de usuarios");
-
         try {
             List<PerfilDto> usuarios = perfilService.getAllProfiles();
             logger.info("Perfiles de usuarios obtenidos exitosamente, total: {}", usuarios.size());
@@ -37,12 +36,10 @@ public class PerfilController {
         }
     }
 
-
     // Obtener perfil por ID de usuario
     @GetMapping("/{idUsuario}")
     public ResponseEntity<PerfilDto> getProfile(@PathVariable Long idUsuario) {
         logger.info("Solicitud para obtener el perfil del usuario con ID: {}", idUsuario);
-
         try {
             PerfilDto perfil = perfilService.getProfile(idUsuario);
             logger.info("Perfil obtenido exitosamente para el usuario con ID: {}", idUsuario);
@@ -53,11 +50,11 @@ public class PerfilController {
         }
     }
 
-    // Actualizar perfil
+    // Actualizar perfil (incluyendo la opción de subir una imagen)
     @PutMapping("/{idUsuario}")
-    public ResponseEntity<ActualizarPerfilDto> updateProfile(@PathVariable Long idUsuario, @RequestBody ActualizarPerfilDto perfilDto) {
+    public ResponseEntity<ActualizarPerfilDto> updateProfile(@PathVariable Long idUsuario,
+                                                             @ModelAttribute ActualizarPerfilDto perfilDto) {
         logger.info("Solicitud para actualizar el perfil del usuario con ID: {}", idUsuario);
-
         try {
             ActualizarPerfilDto perfilActualizado = perfilService.updateProfile(idUsuario, perfilDto);
             logger.info("Perfil actualizado exitosamente para el usuario con ID: {}", idUsuario);
@@ -68,12 +65,10 @@ public class PerfilController {
         }
     }
 
-
     // Borrado lógico del perfil
     @DeleteMapping("/{idUsuario}")
     public ResponseEntity<Void> deleteProfile(@PathVariable Long idUsuario) {
         logger.info("Solicitud para borrar lógicamente el perfil del usuario con ID: {}", idUsuario);
-
         try {
             perfilService.deleteProfile(idUsuario);
             logger.info("Perfil borrado lógicamente exitosamente para el usuario con ID: {}", idUsuario);

@@ -3,40 +3,30 @@ package plaxi.backend.dto;
 import org.springframework.web.multipart.MultipartFile;
 
 public class ActualizarPerfilDto {
-    private Long idUsuario;
     private String username;
     private String gmail;
-    private boolean status;
     private String nombre;
     private String primerApellido;
     private String segundoApellido;
     private String telefono;
     private String ci;
-    private MultipartFile file;
+    private MultipartFile file;  // Imagen opcional
 
     public ActualizarPerfilDto() {
     }
 
-    public ActualizarPerfilDto(Long idUsuario, String username, String gmail, boolean status, String nombre, String primerApellido, String segundoApellido, String telefono, String ci, MultipartFile file) {
-        this.idUsuario = idUsuario;
+    public ActualizarPerfilDto(String username, String gmail, String nombre, String primerApellido, String segundoApellido, String telefono, String ci, MultipartFile file) {
         this.username = username;
         this.gmail = gmail;
-        this.status = status;
         this.nombre = nombre;
         this.primerApellido = primerApellido;
         this.segundoApellido = segundoApellido;
         this.telefono = telefono;
         this.ci = ci;
-        this.file = file;
+        this.file = file;  // Este campo es opcional para el perfil
     }
 
-    public Long getIdUsuario() {
-        return idUsuario;
-    }
-
-    public void setIdUsuario(Long idUsuario) {
-        this.idUsuario = idUsuario;
-    }
+    // Getters y Setters
 
     public String getUsername() {
         return username;
@@ -52,14 +42,6 @@ public class ActualizarPerfilDto {
 
     public void setGmail(String gmail) {
         this.gmail = gmail;
-    }
-
-    public boolean isStatus() {
-        return status;
-    }
-
-    public void setStatus(boolean status) {
-        this.status = status;
     }
 
     public String getNombre() {
@@ -112,11 +94,9 @@ public class ActualizarPerfilDto {
 
     @Override
     public String toString() {
-        return "ActualizarPerfilDto{" +
-                "idUsuario=" + idUsuario +
-                ", username='" + username + '\'' +
+        return "PerfilUpdateDto{" +
+                "username='" + username + '\'' +
                 ", gmail='" + gmail + '\'' +
-                ", status=" + status +
                 ", nombre='" + nombre + '\'' +
                 ", primerApellido='" + primerApellido + '\'' +
                 ", segundoApellido='" + segundoApellido + '\'' +
@@ -125,5 +105,4 @@ public class ActualizarPerfilDto {
                 ", file=" + file +
                 '}';
     }
-    
 }

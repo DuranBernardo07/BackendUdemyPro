@@ -10,11 +10,12 @@ public class PerfilDto {
     private String segundoApellido;
     private String telefono;
     private String ci;
+    private String imagenUrl;  // URL de la imagen de perfil
 
     public PerfilDto() {
     }
 
-    public PerfilDto(Long idUsuario, String username, String gmail, boolean status, String nombre, String primerApellido, String segundoApellido, String telefono, String ci) {
+    public PerfilDto(Long idUsuario, String username, String gmail, boolean status, String nombre, String primerApellido, String segundoApellido, String telefono, String ci, String imagenUrl) {
         this.idUsuario = idUsuario;
         this.username = username;
         this.gmail = gmail;
@@ -24,7 +25,10 @@ public class PerfilDto {
         this.segundoApellido = segundoApellido;
         this.telefono = telefono;
         this.ci = ci;
+        this.imagenUrl = imagenUrl;
     }
+
+    // Getters y Setters
 
     public Long getIdUsuario() {
         return idUsuario;
@@ -98,18 +102,11 @@ public class PerfilDto {
         this.ci = ci;
     }
 
-    @Override
-    public String toString() {
-        return "PerfilDto{" +
-                "idUsuario=" + idUsuario +
-                ", username='" + username + '\'' +
-                ", gmail='" + gmail + '\'' +
-                ", status=" + status +
-                ", nombre='" + nombre + '\'' +
-                ", primerApellido='" + primerApellido + '\'' +
-                ", segundoApellido='" + segundoApellido + '\'' +
-                ", telefono='" + telefono + '\'' +
-                ", ci='" + ci + '\'' +
-                '}';
+    public String getImagenUrl() {
+        return imagenUrl;
+    }
+
+    public void setImagenUrl(String imagenUrl) {
+        this.imagenUrl = imagenUrl;
     }
 }
