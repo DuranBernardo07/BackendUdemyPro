@@ -5,19 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b31b93c9-f966-4184-865c-4048a9f6a392" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/plaxi/backend/config/MinioConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/plaxi/backend/controller/MinioController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/plaxi/backend/dto/S3ObjectDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/plaxi/backend/entity/S3Object.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/plaxi/backend/repository/S3ObjectRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/plaxi/backend/service/MinioService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/plaxi/backend/config/CorsConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/plaxi/backend/controller/PerfilController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/plaxi/backend/controller/PerfilController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/plaxi/backend/dto/ActualizarPerfilDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/plaxi/backend/dto/ActualizarPerfilDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/plaxi/backend/entity/Usuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/plaxi/backend/entity/Usuario.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/plaxi/backend/service/PerfilService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/plaxi/backend/service/PerfilService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -99,6 +88,8 @@
       <workItem from="1726232709199" duration="2031000" />
       <workItem from="1726236738109" duration="317000" />
       <workItem from="1726668348301" duration="6552000" />
+      <workItem from="1726797877002" duration="25000" />
+      <workItem from="1726837540642" duration="6148000" />
     </task>
     <servers />
   </component>
