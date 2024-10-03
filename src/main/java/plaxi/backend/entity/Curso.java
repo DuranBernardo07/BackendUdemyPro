@@ -1,17 +1,16 @@
 package plaxi.backend.entity;
 
-import java.io.Serializable;
 import jakarta.persistence.*;
+import java.io.Serializable;
 
 @Entity
-@Table(name = "Curso", catalog = "PlaxiDB", schema = "public")
+@Table(name = "Curso")
 public class Curso implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Basic(optional = false)
     @Column(name = "id_curso")
     private Long idCurso;
 
@@ -21,10 +20,10 @@ public class Curso implements Serializable {
     @Column(name = "descripcion", nullable = false)
     private String descripcion;
 
-    // Relación con la portada, puede ser nula
-    @JoinColumn(name = "portada", referencedColumnName = "s3_object_id", nullable = true)
+    // Relación con la entidad S3Object (portada)
     @ManyToOne(fetch = FetchType.LAZY)
-    private S3Object portada;  // Este campo puede ser null inicialmente
+    @JoinColumn(name = "portada", referencedColumnName = "s3_object_id", nullable = true)  // Relación con la portada
+    private S3Object portada;
 
     @Column(name = "dificultad", nullable = false)
     private String dificultad;
@@ -32,32 +31,23 @@ public class Curso implements Serializable {
     @Column(name = "estado", nullable = false)
     private Boolean estado;
 
+    // Relación con la categoría
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "categoria_id_categoria", referencedColumnName = "id_categoria", nullable = false)
     private Categoria categoria;
 
-    
+    // Constructor vacío
+    public Curso() {}
 
-    public Curso() {
-    }
-
-    //sin portada
-    public Curso(String nombre, String descripcion, String dificultad, Boolean estado, Categoria categoria) {
+    // Constructor con todos los parámetros
+    public Curso(Long idCurso, String nombre, String descripcion, S3Object portada, String dificultad, Boolean estado, Categoria categoria) {
+        this.idCurso = idCurso;
         this.nombre = nombre;
         this.descripcion = descripcion;
-        this.dificultad = dificultad;
-        this.estado = estado;
-        this.categoria = categoria;
-    }
-
-    //con portada
-    public Curso(String nombre, String descripcion, String dificultad, Boolean estado, Categoria categoria, S3Object portada) {
-        this.nombre = nombre;
-        this.descripcion = descripcion;
-        this.dificultad = dificultad;
-        this.estado = estado;
-        this.categoria = categoria;
         this.portada = portada;
+        this.dificultad = dificultad;
+        this.estado = estado;
+        this.categoria = categoria;
     }
 
     // Getters y Setters
@@ -85,6 +75,14 @@ public class Curso implements Serializable {
         this.descripcion = descripcion;
     }
 
+    public S3Object getPortada() {
+        return portada;
+    }
+
+    public void setPortada(S3Object portada) {
+        this.portada = portada;
+    }
+
     public String getDificultad() {
         return dificultad;
     }
@@ -107,13 +105,5 @@ public class Curso implements Serializable {
 
     public void setCategoria(Categoria categoria) {
         this.categoria = categoria;
-    }
-
-    public S3Object getPortada(){
-        return portada;
-    }
-
-    public void setPortada(S3Object portada){
-        this.portada = portada;
     }
 }

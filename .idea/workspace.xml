@@ -6,70 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="b31b93c9-f966-4184-865c-4048a9f6a392" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/plaxi/backend/dto/ActualizarPerfilDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/plaxi/backend/dto/ActualizarPerfilDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/plaxi/backend/BackendApplication.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/plaxi/backend/config/CorsConfig.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/plaxi/backend/config/MinioConfig.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/plaxi/backend/controller/AuthController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/plaxi/backend/controller/CursoController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/plaxi/backend/controller/MinioController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/plaxi/backend/controller/PerfilController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/plaxi/backend/controller/UsuarioController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/plaxi/backend/dto/ActualizarCursoDto.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/plaxi/backend/dto/ActualizarPerfilDto.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/plaxi/backend/dto/CategoriaDto.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/plaxi/backend/dto/ConocimientoPrevioDto.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/plaxi/backend/dto/CursoDto.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/plaxi/backend/dto/LeccionDto.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/plaxi/backend/dto/NewFileDto.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/plaxi/backend/dto/PerfilDto.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/plaxi/backend/dto/PersonaDto.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/plaxi/backend/dto/RegisterRequestDto.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/plaxi/backend/dto/ResponseDto.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/plaxi/backend/dto/RolDto.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/plaxi/backend/dto/S3ObjectDto.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/plaxi/backend/dto/TemaDto.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/plaxi/backend/dto/UsuarioDto.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/plaxi/backend/entity/Categoria.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/plaxi/backend/entity/Categoria_.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/plaxi/backend/entity/ConocimientoPrevio.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/plaxi/backend/entity/ConocimientoPrevio_.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/plaxi/backend/entity/Curso.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/plaxi/backend/entity/Curso_.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/plaxi/backend/entity/Leccion.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/plaxi/backend/entity/Leccion_.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/plaxi/backend/entity/Persona.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/plaxi/backend/entity/Rol.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/plaxi/backend/entity/S3Object.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/plaxi/backend/entity/Tema.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/plaxi/backend/entity/Tema_.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/plaxi/backend/entity/Usuario.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/plaxi/backend/repository/CategoriaRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/plaxi/backend/repository/ConocimientoPrevioRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/plaxi/backend/repository/CursoRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/plaxi/backend/repository/LeccionRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/plaxi/backend/repository/PersonaRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/plaxi/backend/repository/RolRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/plaxi/backend/repository/S3ObjectRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/plaxi/backend/repository/TemaRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/plaxi/backend/repository/UsuarioRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/plaxi/backend/service/AuthService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/plaxi/backend/service/CursoService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/plaxi/backend/service/MinioService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/plaxi/backend/service/PasswordGenerator.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/plaxi/backend/service/PerfilService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/plaxi/backend/service/UsuarioService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/generated-sources/annotations/plaxi/backend/entity/Categoria_.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/generated-sources/annotations/plaxi/backend/entity/ConocimientoPrevio_.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/generated-sources/annotations/plaxi/backend/entity/Curso_.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/generated-sources/annotations/plaxi/backend/entity/Leccion_.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/generated-sources/annotations/plaxi/backend/entity/Tema_.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/plaxi/backend/dto/CursoDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/plaxi/backend/dto/CursoDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/plaxi/backend/entity/Curso.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/plaxi/backend/entity/Curso.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/plaxi/backend/BackendApplicationTests.class" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -99,27 +38,27 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;Spring Boot.BackendApplication.executor&quot;: &quot;Run&quot;,
-    &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/trabajo/Luis/restaurante&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.JavaFX&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "Spring Boot.BackendApplication.executor": "Run",
+    "dart.analysis.tool.window.visible": "false",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "D:/trabajo/Luis/restaurante",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.JavaFX",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RunManager">
     <configuration name="BackendApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="backend" />
@@ -166,7 +105,7 @@
       <workItem from="1727807217197" duration="864000" />
       <workItem from="1727874068893" duration="676000" />
       <workItem from="1727897957726" duration="833000" />
-      <workItem from="1727962355078" duration="5670000" />
+      <workItem from="1727962355078" duration="7135000" />
     </task>
     <servers />
   </component>
