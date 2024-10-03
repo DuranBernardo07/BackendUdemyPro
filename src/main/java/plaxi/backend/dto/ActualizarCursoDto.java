@@ -1,18 +1,20 @@
 package plaxi.backend.dto;
 
-public class CursoDto {
+import org.springframework.web.multipart.MultipartFile;
 
+public class ActualizarCursoDto {
     private Long idCurso;
     private String nombre;
     private String descripcion;
-    private String portada;
+    private MultipartFile portada;
     private String dificultad;
     private Boolean estado;
-    private Long categoriaId;  // Solo el ID de la categoría
+    private Long categoriaId;
 
-    public CursoDto() {}
+    public ActualizarCursoDto() {
+    }
 
-    public CursoDto(Long idCurso, String nombre, String descripcion, String portada, String dificultad, Boolean estado, Long categoriaId) {
+    public ActualizarCursoDto(Long idCurso, String nombre, String descripcion, MultipartFile portada, String dificultad, Boolean estado, Long categoriaId) {
         this.idCurso = idCurso;
         this.nombre = nombre;
         this.descripcion = descripcion;
@@ -23,6 +25,7 @@ public class CursoDto {
     }
 
     // Getters y Setters
+
     public Long getIdCurso() {
         return idCurso;
     }
@@ -47,11 +50,11 @@ public class CursoDto {
         this.descripcion = descripcion;
     }
 
-    public String getPortada() {
+    public MultipartFile getPortada() {
         return portada;
     }
 
-    public void setPortada(String portada) {
+    public void setPortada(MultipartFile portada) {
         this.portada = portada;
     }
 
@@ -78,4 +81,6 @@ public class CursoDto {
     public void setCategoriaId(Long categoriaId) {
         this.categoriaId = categoriaId;
     }
+
+    
 }
