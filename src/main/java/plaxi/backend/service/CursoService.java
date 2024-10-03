@@ -2,7 +2,6 @@ package plaxi.backend.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.multipart.MultipartFile;
 
 import plaxi.backend.dto.ActualizarCursoDto;
 import plaxi.backend.dto.CursoDto;
@@ -43,6 +42,49 @@ public class CursoService {
                 curso.getCategoria() != null ? curso.getCategoria().getIdCategoria() : null  // ID de la categoría
         )).collect(Collectors.toList());
     }
+/* 
+    // Obtener un curso con detalles
+    public CursoDto getCursoConDetalles(Long idCurso) throws Exception {
+    Curso curso = cursoRepository.findById(idCurso)
+            .orElseThrow(() -> new Exception("Curso no encontrado"));
+
+    if (!curso.getEstado()) {
+        throw new Exception("El curso ha sido desactivado.");
+    }
+
+    // Mapeamos las entidades relacionadas a sus respectivos DTOs
+    List<CategoriaDto> categoriasDto = curso.getCategorias().stream()
+            .map(categoria -> new CategoriaDto(categoria.getIdCategoria(), categoria.getNombre()))
+            .collect(Collectors.toList());
+
+    List<ConocimientoPrevioDto> conocimientosPreviosDto = curso.getConocimientosPrevios().stream()
+            .map(conocimiento -> new ConocimientoPrevioDto(conocimiento.getIdConocimiento(), conocimiento.getDescripcion()))
+            .collect(Collectors.toList());
+
+    List<LeccionDto> leccionesDto = curso.getLecciones().stream()
+            .map(leccion -> new LeccionDto(leccion.getIdLeccion(), leccion.getTitulo(), leccion.getDescripcion()))
+            .collect(Collectors.toList());
+
+    List<TemaDto> temasDto = curso.getTemas().stream()
+            .map(tema -> new TemaDto(tema.getIdTema(), tema.getTitulo(), tema.getContenido()))
+            .collect(Collectors.toList());
+
+    // Retornar el DTO completo con las relaciones
+    return new CursoDto(
+            curso.getIdCurso(),
+            curso.getNombre(),
+            curso.getDescripcion(),
+            curso.getDificultad(),
+            curso.getPortada() != null ? curso.getPortada().getUrl() : null,
+            curso.getEstado(),
+            curso.getCategoria().getIdCategoria(),
+            categoriasDto,
+            conocimientosPreviosDto,
+            leccionesDto,
+            temasDto
+    );
+}
+*/
 
     // Obtener un curso por su ID
     public CursoDto getCurso(Long idCurso) throws Exception {

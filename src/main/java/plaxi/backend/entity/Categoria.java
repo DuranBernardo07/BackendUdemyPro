@@ -4,7 +4,7 @@ import java.io.Serializable;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "Categoria")
+@Table(name = "Categoria", catalog = "PlaxiDB", schema = "public")
 public class Categoria implements Serializable {
 
     private static final long serialVersionUID = 1L;
