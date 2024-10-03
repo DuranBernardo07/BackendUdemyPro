@@ -2,7 +2,6 @@ package plaxi.backend.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.multipart.MultipartFile;
 import plaxi.backend.dto.ActualizarPerfilDto;
 import plaxi.backend.dto.PerfilDto;
 import plaxi.backend.dto.S3ObjectDto;

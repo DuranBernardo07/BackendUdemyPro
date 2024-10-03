@@ -4,7 +4,7 @@ import java.io.Serializable;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "Curso")
+@Table(name = "Curso", catalog = "PlaxiDB", schema = "public")
 public class Curso implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -35,6 +35,8 @@ public class Curso implements Serializable {
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "categoria_id_categoria", referencedColumnName = "id_categoria", nullable = false)
     private Categoria categoria;
+
+    
 
     public Curso() {
     }

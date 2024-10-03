@@ -28,7 +28,7 @@ public class AuthController {
         try {
             Usuario usuarioCreado = authService.registerUser(registerRequest.getUsuario(), registerRequest.getPersona());
             logger.info("Registro exitoso para el usuario: {}", registerRequest.getUsuario().getUsername());
-
+            logger.info(null, usuarioCreado);
             ResponseDto<Usuario> response = new ResponseDto<>("Usuario registrado exitosamente", null, true);
             return ResponseEntity.ok(response);
 

@@ -7,7 +7,7 @@ spring:
   datasource:
     url: jdbc:postgresql://localhost:5433/PlaxiDB
     username: postgres
-    password: jose
+    password: admin1234
     driver-class-name: org.postgresql.Driver
   jpa:
     hibernate:
