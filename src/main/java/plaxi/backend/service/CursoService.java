@@ -32,7 +32,7 @@ public class CursoService {
 
     // Obtener todos los cursos activos
     public List<CursoDto> getAllCursos() {
-        List<Curso> cursos = cursoRepository.findAllByStatusTrue();
+        List<Curso> cursos = cursoRepository.findAllByEstadoTrue();
         return cursos.stream().map(curso -> new CursoDto(
                 curso.getIdCurso(),
                 curso.getNombre(),

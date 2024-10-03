@@ -1,5 +1,6 @@
 package plaxi.backend.dto;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.springframework.web.multipart.MultipartFile;
 
 public class ActualizarPerfilDto {
@@ -10,7 +11,8 @@ public class ActualizarPerfilDto {
     private String segundoApellido;
     private String telefono;
     private String ci;
-    private MultipartFile file;  // Imagen opcional
+    @JsonIgnore
+    private MultipartFile file;
 
     public ActualizarPerfilDto() {
     }
@@ -23,7 +25,7 @@ public class ActualizarPerfilDto {
         this.segundoApellido = segundoApellido;
         this.telefono = telefono;
         this.ci = ci;
-        this.file = file;  // Este campo es opcional para el perfil
+        this.file = file;
     }
 
     // Getters y Setters

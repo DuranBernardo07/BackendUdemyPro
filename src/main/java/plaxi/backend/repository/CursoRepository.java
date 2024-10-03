@@ -9,8 +9,9 @@ import java.util.Optional;
 public interface CursoRepository extends JpaRepository<Curso, Long> {
 
     Optional<Curso> findByNombre(String nombre);
+
     Optional<Curso> findByIdCurso(Long idCurso);
 
-
-    List<Curso> findAllByStatusTrue();
+    // Cambia este método para usar 'estado' en lugar de 'status'
+    List<Curso> findAllByEstadoTrue();
 }
