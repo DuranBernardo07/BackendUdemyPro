@@ -1,26 +1,25 @@
 package plaxi.backend.dto;
 
-import java.util.List;
 
 public class CursoDto {
 
     private Long idCurso;
     private String nombre;
     private String descripcion;
-    private String portada;
     private String dificultad;
+    private String portada;
     private Boolean estado;
     private Long categoriaId;  // Solo el ID de la categoría
 
 
     public CursoDto() {}
 
-    public CursoDto(Long idCurso, String nombre, String descripcion, String portada, String dificultad, Boolean estado, Long categoriaId) {
+    public CursoDto(Long idCurso, String nombre, String descripcion, String dificultad, String portada, Boolean estado, Long categoriaId) {
         this.idCurso = idCurso;
         this.nombre = nombre;
         this.descripcion = descripcion;
-        this.portada = portada;
         this.dificultad = dificultad;
+        this.portada = portada;
         this.estado = estado;
         this.categoriaId = categoriaId;
     }

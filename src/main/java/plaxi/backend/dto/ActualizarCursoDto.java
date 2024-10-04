@@ -1,16 +1,18 @@
 package plaxi.backend.dto;
 
 import org.springframework.web.multipart.MultipartFile;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 public class ActualizarCursoDto {
     private Long idCurso;
     private String nombre;
     private String descripcion;
-    private MultipartFile portada;
     private String dificultad;
     private Boolean estado;
     private Long categoriaId;
-
+    @JsonIgnore
+    private MultipartFile portada;
+    
     public ActualizarCursoDto() {
     }
 

@@ -109,11 +109,11 @@ public class CursoService {
     }
 
     // Crear un nuevo curso
-    public CursoDto createCurso(ActualizarCursoDto cursoDto) throws Exception {
+public ActualizarCursoDto createCurso(ActualizarCursoDto cursoDto) throws Exception {
         // Validar que la categoría existe
         var categoria = categoriaRepository.findById(cursoDto.getCategoriaId())
                 .orElseThrow(() -> new Exception("Categoría no encontrada"));
-
+    
         // Crear una nueva entidad Curso
         Curso curso = new Curso();
         curso.setNombre(cursoDto.getNombre());
@@ -121,62 +121,55 @@ public class CursoService {
         curso.setDificultad(cursoDto.getDificultad());
         curso.setEstado(cursoDto.getEstado());
         curso.setCategoria(categoria);  // Asignar categoría
-
-        // Si se ha subido una portada, procesarla y asociarla al curso
+    
+        // Si el DTO incluye un archivo de portada, subimos la imagen a MinIO y guardamos el enlace
         if (cursoDto.getPortada() != null && !cursoDto.getPortada().isEmpty()) {
             S3ObjectDto s3ObjectDto = minioService.uploadFile(cursoDto.getPortada());
             S3Object s3Object = s3ObjectRepository.findById(s3ObjectDto.getS3ObjectId())
                     .orElseThrow(() -> new Exception("Imagen de portada no encontrada"));
-            curso.setPortada(s3Object);  // Asociar portada al curso
+            curso.setPortada(s3Object);  // Asociamos la imagen de portada al curso
         }
-
+    
         curso = cursoRepository.save(curso);  // Guardar el curso en la BD
-
+    
         // Retornar el DTO del curso creado
-        return new CursoDto(
-                curso.getIdCurso(),
-                curso.getNombre(),
-                curso.getDescripcion(),
-                curso.getDificultad(),
-                curso.getPortada() != null ? curso.getPortada().getUrl() : null,
-                curso.getEstado(),
-                curso.getCategoria().getIdCategoria()
-        );
+        return cursoDto;
     }
-
+    
     // Actualizar los detalles de un curso
     public ActualizarCursoDto updateCurso(Long idCurso, ActualizarCursoDto cursoDto) throws Exception {
         Curso curso = cursoRepository.findById(idCurso)
                 .orElseThrow(() -> new Exception("Curso no encontrado"));
-
+    
         if (!curso.getEstado()) {
             throw new Exception("El curso ha sido desactivado y no se puede actualizar.");
         }
-
+    
         // Validar que la categoría proporcionada exista
         var categoria = categoriaRepository.findById(cursoDto.getCategoriaId())
                 .orElseThrow(() -> new Exception("Categoría no encontrada"));
-
-        // Si se ha subido una nueva portada, se sube a MinIO y se asocia al curso
+    
+        // Si el DTO incluye un archivo de portada, subimos la imagen a MinIO y guardamos el enlace
         if (cursoDto.getPortada() != null && !cursoDto.getPortada().isEmpty()) {
             S3ObjectDto s3ObjectDto = minioService.uploadFile(cursoDto.getPortada());
             S3Object s3Object = s3ObjectRepository.findById(s3ObjectDto.getS3ObjectId())
                     .orElseThrow(() -> new Exception("Imagen de portada no encontrada"));
-            curso.setPortada(s3Object);  // Asociar portada al curso
+            curso.setPortada(s3Object);  // Asociamos la imagen de portada al curso
         }
-
+    
         // Actualizar los datos del curso
         curso.setNombre(cursoDto.getNombre());
         curso.setDescripcion(cursoDto.getDescripcion());
         curso.setDificultad(cursoDto.getDificultad());
         curso.setEstado(cursoDto.getEstado());
         curso.setCategoria(categoria);  // Asignar la nueva categoría
-
+    
         cursoRepository.save(curso);  // Guardar cambios
-
+    
         // Retornar el DTO actualizado
         return cursoDto;
     }
+    
 
     // Borrado lógico del curso (cambia el estado del curso a falso)
     public void deleteCurso(Long idCurso) throws Exception {

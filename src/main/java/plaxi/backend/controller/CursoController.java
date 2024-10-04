@@ -52,10 +52,10 @@ public class CursoController {
 
     // Crear un nuevo curso
     @PostMapping("/create")
-    public ResponseEntity<CursoDto> createCurso(@RequestBody ActualizarCursoDto cursoDto) {
+    public ResponseEntity<ActualizarCursoDto> createCurso(@ModelAttribute ActualizarCursoDto cursoDto) {
         logger.info("Solicitud para crear un nuevo curso: {}", cursoDto.getNombre());
         try {
-            CursoDto nuevoCurso = cursoService.createCurso(cursoDto);
+            ActualizarCursoDto nuevoCurso = cursoService.createCurso(cursoDto);
             logger.info("Curso creado exitosamente con ID: {}", nuevoCurso.getIdCurso());
             return ResponseEntity.status(HttpStatus.CREATED).body(nuevoCurso);
         } catch (Exception e) {
@@ -66,7 +66,7 @@ public class CursoController {
 
     // Actualizar un curso por ID
     @PutMapping("/{idCurso}")
-    public ResponseEntity<ActualizarCursoDto> updateCurso(@PathVariable Long idCurso, @RequestBody ActualizarCursoDto cursoDto) {
+    public ResponseEntity<ActualizarCursoDto> updateCurso(@PathVariable Long idCurso, @ModelAttribute ActualizarCursoDto cursoDto) {
         logger.info("Solicitud para actualizar el curso con ID: {}", idCurso);
         try {
             ActualizarCursoDto cursoActualizado = cursoService.updateCurso(idCurso, cursoDto);
