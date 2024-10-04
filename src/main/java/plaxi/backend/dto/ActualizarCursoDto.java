@@ -4,19 +4,23 @@ import org.springframework.web.multipart.MultipartFile;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 public class ActualizarCursoDto {
+
     private Long idCurso;
     private String nombre;
     private String descripcion;
     private String dificultad;
     private Boolean estado;
     private Long categoriaId;
+    private Long usuarioCreadorId;  // Agregar el campo usuarioCreadorId
+
     @JsonIgnore
     private MultipartFile portada;
-    
-    public ActualizarCursoDto() {
-    }
 
-    public ActualizarCursoDto(Long idCurso, String nombre, String descripcion, MultipartFile portada, String dificultad, Boolean estado, Long categoriaId) {
+    // Constructor vacío
+    public ActualizarCursoDto() {}
+
+    // Constructor con todos los parámetros
+    public ActualizarCursoDto(Long idCurso, String nombre, String descripcion, MultipartFile portada, String dificultad, Boolean estado, Long categoriaId, Long usuarioCreadorId) {
         this.idCurso = idCurso;
         this.nombre = nombre;
         this.descripcion = descripcion;
@@ -24,6 +28,7 @@ public class ActualizarCursoDto {
         this.dificultad = dificultad;
         this.estado = estado;
         this.categoriaId = categoriaId;
+        this.usuarioCreadorId = usuarioCreadorId;  // Inicializar el campo usuarioCreadorId
     }
 
     // Getters y Setters
@@ -84,5 +89,11 @@ public class ActualizarCursoDto {
         this.categoriaId = categoriaId;
     }
 
-    
+    public Long getUsuarioCreadorId() {  // Getter para usuarioCreadorId
+        return usuarioCreadorId;
+    }
+
+    public void setUsuarioCreadorId(Long usuarioCreadorId) {  // Setter para usuarioCreadorId
+        this.usuarioCreadorId = usuarioCreadorId;
+    }
 }

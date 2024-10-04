@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
 import plaxi.backend.dto.ActualizarCursoDto;
 import plaxi.backend.dto.CursoDto;
 import plaxi.backend.service.CursoService;
@@ -50,6 +49,20 @@ public class CursoController {
         }
     }
 
+    // Obtener cursos por usuario creador
+    @GetMapping("/usuario/{usuarioId}")
+    public ResponseEntity<List<CursoDto>> getCursosByUsuario(@PathVariable Long usuarioId) {
+        logger.info("Solicitud para obtener cursos del usuario con ID: {}", usuarioId);
+        try {
+            List<CursoDto> cursos = cursoService.getCursosByUsuario(usuarioId);
+            logger.info("Cursos obtenidos exitosamente para el usuario con ID: {}", usuarioId);
+            return ResponseEntity.ok(cursos);
+        } catch (Exception e) {
+            logger.error("Error al obtener cursos del usuario con ID: {} - {}", usuarioId, e.getMessage());
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
+        }
+    }
+
     // Crear un nuevo curso
     @PostMapping("/create")
     public ResponseEntity<ActualizarCursoDto> createCurso(@ModelAttribute ActualizarCursoDto cursoDto) {
@@ -58,15 +71,16 @@ public class CursoController {
             ActualizarCursoDto nuevoCurso = cursoService.createCurso(cursoDto);
             logger.info("Curso creado exitosamente con ID: {}", nuevoCurso.getIdCurso());
             return ResponseEntity.status(HttpStatus.CREATED).body(nuevoCurso);
-        } catch (Exception e) {
+        }catch (Exception e) {
             logger.error("Error al crear el curso: {}", e.getMessage());
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
         }
     }
 
+
     // Actualizar un curso por ID
     @PutMapping("/{idCurso}")
-    public ResponseEntity<ActualizarCursoDto> updateCurso(@PathVariable Long idCurso, @ModelAttribute ActualizarCursoDto cursoDto) {
+    public ResponseEntity<ActualizarCursoDto> updateCurso(@PathVariable Long idCurso, @RequestBody ActualizarCursoDto cursoDto) {
         logger.info("Solicitud para actualizar el curso con ID: {}", idCurso);
         try {
             ActualizarCursoDto cursoActualizado = cursoService.updateCurso(idCurso, cursoDto);
@@ -85,7 +99,7 @@ public class CursoController {
         try {
             cursoService.deleteCurso(idCurso);
             logger.info("Curso borrado lógicamente exitosamente con ID: {}", idCurso);
-            return ResponseEntity.status(200).build();
+            return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
         } catch (Exception e) {
             logger.error("Error al borrar lógicamente el curso con ID: {} - {}", idCurso, e.getMessage());
             return ResponseEntity.status(HttpStatus.NOT_FOUND).build();

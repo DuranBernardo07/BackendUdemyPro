@@ -20,9 +20,8 @@ public class Curso implements Serializable {
     @Column(name = "descripcion", nullable = false)
     private String descripcion;
 
-    // Relación con la entidad S3Object (portada)
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "portada", referencedColumnName = "s3_object_id", nullable = true)  // Relación con la portada
+    @JoinColumn(name = "portada", referencedColumnName = "s3_object_id", nullable = true)
     private S3Object portada;
 
     @Column(name = "dificultad", nullable = false)
@@ -36,18 +35,23 @@ public class Curso implements Serializable {
     @JoinColumn(name = "categoria_id_categoria", referencedColumnName = "id_categoria", nullable = false)
     private Categoria categoria;
 
+    // Relación con el usuario que creó el curso
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "usuario_creador_id", referencedColumnName = "id_usuario", nullable = false)
+    private Usuario usuarioCreador;  // Asumiendo que tienes una entidad Usuario
+
     // Constructor vacío
     public Curso() {}
 
     // Constructor con todos los parámetros
-    public Curso(Long idCurso, String nombre, String descripcion, S3Object portada, String dificultad, Boolean estado, Categoria categoria) {
-        this.idCurso = idCurso;
+    public Curso(String nombre, String descripcion, S3Object portada, String dificultad, Boolean estado, Categoria categoria, Usuario usuarioCreador) {
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.portada = portada;
         this.dificultad = dificultad;
         this.estado = estado;
         this.categoria = categoria;
+        this.usuarioCreador = usuarioCreador;
     }
 
     // Getters y Setters
@@ -105,5 +109,13 @@ public class Curso implements Serializable {
 
     public void setCategoria(Categoria categoria) {
         this.categoria = categoria;
+    }
+
+    public Usuario getUsuarioCreador() {
+        return usuarioCreador;
+    }
+
+    public void setUsuarioCreador(Usuario usuarioCreador) {
+        this.usuarioCreador = usuarioCreador;
     }
 }

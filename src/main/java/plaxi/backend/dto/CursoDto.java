@@ -1,6 +1,5 @@
 package plaxi.backend.dto;
 
-
 public class CursoDto {
 
     private Long idCurso;
@@ -9,12 +8,12 @@ public class CursoDto {
     private String dificultad;
     private String portada;
     private Boolean estado;
-    private Long categoriaId;  // Solo el ID de la categoría
-
+    private Long categoriaId;  // ID de la categoría
+    private Long usuarioCreadorId;  // ID del usuario creador
 
     public CursoDto() {}
 
-    public CursoDto(Long idCurso, String nombre, String descripcion, String dificultad, String portada, Boolean estado, Long categoriaId) {
+    public CursoDto(Long idCurso, String nombre, String descripcion, String dificultad, String portada, Boolean estado, Long categoriaId, Long usuarioCreadorId) {
         this.idCurso = idCurso;
         this.nombre = nombre;
         this.descripcion = descripcion;
@@ -22,6 +21,7 @@ public class CursoDto {
         this.portada = portada;
         this.estado = estado;
         this.categoriaId = categoriaId;
+        this.usuarioCreadorId = usuarioCreadorId;
     }
 
     public Long getIdCurso() {
@@ -80,16 +80,11 @@ public class CursoDto {
         this.categoriaId = categoriaId;
     }
 
-    @Override
-    public String toString() {
-        return "CursoDto{" +
-                "idCurso=" + idCurso +
-                ", nombre='" + nombre + '\'' +
-                ", descripcion='" + descripcion + '\'' +
-                ", portada='" + portada + '\'' +
-                ", dificultad='" + dificultad + '\'' +
-                ", estado=" + estado +
-                ", categoriaId=" + categoriaId +
-                '}';
+    public Long getUsuarioCreadorId() {
+        return usuarioCreadorId;
+    }
+
+    public void setUsuarioCreadorId(Long usuarioCreadorId) {
+        this.usuarioCreadorId = usuarioCreadorId;
     }
 }

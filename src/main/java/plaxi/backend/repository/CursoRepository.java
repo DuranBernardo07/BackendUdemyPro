@@ -14,4 +14,6 @@ public interface CursoRepository extends JpaRepository<Curso, Long> {
 
     // Cambia este método para usar 'estado' en lugar de 'status'
     List<Curso> findAllByEstadoTrue();
+
+    List<Curso> findByUsuarioCreador_IdUsuarioAndEstadoTrue(Long usuarioId);
 }
