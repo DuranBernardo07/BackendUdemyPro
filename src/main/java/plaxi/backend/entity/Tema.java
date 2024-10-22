@@ -2,6 +2,7 @@ package plaxi.backend.entity;
 
 import java.io.Serializable;
 import jakarta.persistence.*;
+import org.springframework.web.multipart.MultipartFile;
 
 @Entity
 @Table(name = "Tema", catalog = "PlaxiDB", schema = "public")
@@ -24,8 +25,12 @@ public class Tema implements Serializable {
     @Column(name = "descripcion", nullable = false)
     private String descripcion;
 
-    @Column(name = "recurso_multimedia", nullable = false)
-    private String recursoMultimedia;
+    @Column(name = "estado", nullable = false)
+    private Boolean estado;
+
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "contenido", referencedColumnName = "s3_object_id", nullable = false)
+    private S3Object recursoMultimedia;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "leccion_id_leccion", referencedColumnName = "id_leccion", nullable = false)
@@ -34,12 +39,13 @@ public class Tema implements Serializable {
     public Tema() {
     }
 
-    public Tema(String titulo, int orden, String descripcion, String recursoMultimedia, Leccion leccion) {
+    public Tema(String titulo, int orden, String descripcion, S3Object recursoMultimedia, Leccion leccion, Boolean estado) {
         this.titulo = titulo;
         this.orden = orden;
         this.descripcion = descripcion;
         this.recursoMultimedia = recursoMultimedia;
         this.leccion = leccion;
+        this.estado = estado;
     }
 
     // Getters y Setters
@@ -63,6 +69,10 @@ public class Tema implements Serializable {
         return orden;
     }
 
+    public Boolean getEstado() {
+        return estado;
+    }
+
     public void setOrden(int orden) {
         this.orden = orden;
     }
@@ -75,11 +85,11 @@ public class Tema implements Serializable {
         this.descripcion = descripcion;
     }
 
-    public String getRecursoMultimedia() {
+    public S3Object getRecursoMultimedia() {
         return recursoMultimedia;
     }
 
-    public void setRecursoMultimedia(String recursoMultimedia) {
+    public void setRecursoMultimedia(S3Object recursoMultimedia) {
         this.recursoMultimedia = recursoMultimedia;
     }
 
@@ -89,5 +99,9 @@ public class Tema implements Serializable {
 
     public void setLeccion(Leccion leccion) {
         this.leccion = leccion;
+    }
+
+    public void setEstado(Boolean estado) {
+        this.estado = estado;
     }
 }

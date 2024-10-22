@@ -31,15 +31,19 @@ public class Leccion implements Serializable {
     @JoinColumn(name = "curso_id_curso", referencedColumnName = "id_curso", nullable = false)
     private Curso curso;
 
+    @Column(name = "estado", nullable = false)
+    private Boolean estado;
+
     public Leccion() {
     }
 
-    public Leccion(String titulo, int orden, int duracionEstimada, String contenido, Curso curso) {
+    public Leccion(String titulo, int orden, int duracionEstimada, String contenido, Curso curso, Boolean estado) {
         this.titulo = titulo;
         this.orden = orden;
         this.duracionEstimada = duracionEstimada;
         this.contenido = contenido;
         this.curso = curso;
+        this.estado = estado;
     }
 
     // Getters y Setters
@@ -61,6 +65,10 @@ public class Leccion implements Serializable {
 
     public int getOrden() {
         return orden;
+    }
+
+    public Boolean getEstado() {
+        return estado;
     }
 
     public void setOrden(int orden) {
@@ -89,5 +97,9 @@ public class Leccion implements Serializable {
 
     public void setCurso(Curso curso) {
         this.curso = curso;
+    }
+
+    public void setEstado(Boolean estado) {
+        this.estado = estado;
     }
 }
