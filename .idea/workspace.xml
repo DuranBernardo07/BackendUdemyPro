@@ -6,7 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="b31b93c9-f966-4184-865c-4048a9f6a392" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/plaxi/backend/controller/LeccionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/plaxi/backend/controller/LeccionController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/plaxi/backend/controller/LeccionController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/plaxi/backend/controller/LeccionController.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,7 +38,7 @@
 }</component>
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/Coss111/Plaxi-Backend.git&quot;,
+    &quot;url&quot;: &quot;https://github.com/DuranBernardo07/BackendUdemyPro.git&quot;,
     &quot;accountId&quot;: &quot;b0f2a1bd-aef5-4fbd-ab76-955c9d459d13&quot;
   }
 }</component>
@@ -121,7 +124,16 @@
       <workItem from="1728065466920" duration="2571000" />
       <workItem from="1729620938584" duration="6866000" />
       <workItem from="1729823756693" duration="95000" />
-      <workItem from="1729823975796" duration="909000" />
+      <workItem from="1729823975796" duration="2182000" />
+      <workItem from="1730174333564" duration="38000" />
+      <workItem from="1730857987862" duration="585000" />
+      <workItem from="1730858604362" duration="1232000" />
+      <workItem from="1731291207679" duration="449000" />
+      <workItem from="1731291667421" duration="5000" />
+      <workItem from="1731291768777" duration="1877000" />
+      <workItem from="1731461718174" duration="267000" />
+      <workItem from="1731462004126" duration="3619000" />
+      <workItem from="1731522352019" duration="2480000" />
     </task>
     <servers />
   </component>
