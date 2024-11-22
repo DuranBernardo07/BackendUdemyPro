@@ -50,6 +50,13 @@ public class LeccionService {
     public Page<LeccionDto> getLeccionesByCurso(Long cursoId, PaginadoDto paginadoDto) {
         Sort sort = paginadoDto.getSortDir().equalsIgnoreCase(Sort.Direction.ASC.name()) ? Sort.by(paginadoDto.getSortBy()).ascending() : Sort.by(paginadoDto.getSortBy()).descending();
         Pageable page = PageRequest.of(paginadoDto.getPage(), paginadoDto.getSize(), sort);
+        Page<LeccionDto> page1 = leccionRepository.findAllByCursoIdCurso(cursoId, page);
+
+        System.out.println("Contenido: " + page1.getContent());
+        System.out.println("Número de elementos: " + page1.getNumberOfElements());
+        System.out.println("Total elementos: " + page1.getTotalElements());
+        System.out.println("Página actual: " + page1.getNumber());
+
         return leccionRepository.findAllByCursoIdCurso(cursoId, page);
     }
 
@@ -74,8 +81,6 @@ public class LeccionService {
         leccion.setOrden(leccionDto.getOrden());
         leccion.setDuracionEstimada(leccionDto.getDuracionEstimada());
         leccion.setContenido(leccionDto.getContenido());
-        leccion.setCurso(cursoRepository.findById(leccionDto.getCursoId())
-                .orElseThrow(() -> new RuntimeException("Curso no encontrado")));
         leccion.setEstado(true);
         leccionRepository.save(leccion);
     }

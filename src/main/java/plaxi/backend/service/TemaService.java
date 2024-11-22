@@ -1,6 +1,8 @@
 package plaxi.backend.service;
 
 import jakarta.mail.Multipart;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -11,6 +13,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
+import plaxi.backend.controller.TemaController;
 import plaxi.backend.dto.PaginadoDto;
 import plaxi.backend.dto.S3ObjectDto;
 import plaxi.backend.dto.TemaDto;
@@ -23,11 +26,15 @@ import plaxi.backend.entity.Leccion;
 import plaxi.backend.repository.LeccionRepository;
 import plaxi.backend.dto.LeccionDto;
 
+import javax.swing.text.html.Option;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
 public class TemaService {
+
+    private static final Logger logger = LoggerFactory.getLogger(TemaController.class);
 
     @Autowired
     private TemaRepository temaRepository;
@@ -77,32 +84,37 @@ public class TemaService {
         return temas;
     }
 
-//    // Obtener lecciones por tema
-//    public List<TemaDto> getTemasByLeccion(Long leccionId) {
-//        List<Tema> temas = temaRepository.findAllByLeccionIdLeccion(leccionId);
-//        return temas.stream().map(tema -> new TemaDto(
-//                tema.getIdTema(),
-//                tema.getTitulo(),
-//                tema.getOrden(),
-//                tema.getDescripcion(),
-//                tema.getRecursoMultimedia().getUrl(),
-//                tema.getEstado(),
-//                tema.getLeccion().getIdLeccion()
-//        )).collect(Collectors.toList());
-//    }
-
     // Crear un tema
     public void createTema(TemaDto temaDto, MultipartFile file) throws Exception {
         // Subir archivo a MinIO y guardar detalles en la base de datos
+        logger.info("Nombre del archivo: "+file.getOriginalFilename());
+        logger.info("Tipo de archivo: "+file.getContentType());
         S3ObjectDto s3ObjectDto = recursoMultimediaService.uploadFile(file);
-        S3Object s3Object = s3ObjectRepository.findById(s3ObjectDto.getS3ObjectId()).get();
+        Optional<S3Object> s3Object = s3ObjectRepository.findById(s3ObjectDto.getS3ObjectId());
+        S3Object s3Object1 = new S3Object();
+
+        if (s3Object.isEmpty()) {
+            throw new RuntimeException("Error al subir el archivo");
+        } else if (s3Object.isPresent()) {
+            logger.info("Archivo subido exitosamente");
+            s3Object1 = s3Object.get();
+            logger.info("ID del archivo: "+s3Object1.getS3ObjectId());
+            logger.info("URL del archivo: "+s3Object1.getUrl());
+            logger.info("Nombre del archivo: "+s3Object1.getBucket());
+            logger.info("Tipo de archivo: "+s3Object1.getContentType());
+            logger.info("Tamaño del archivo: "+s3Object1.getFilename());
+        }
+
+
+        Leccion leccion = leccionRepository.findById(temaDto.getLeccionId())
+                .orElseThrow(() -> new RuntimeException("Leccion no encontrada"));
+
         Tema tema = new Tema();
         tema.setTitulo(temaDto.getTitulo());
         tema.setOrden(temaDto.getOrden());
         tema.setDescripcion(temaDto.getDescripcion());
-        tema.setRecursoMultimedia(s3Object);
-        tema.setLeccion(leccionRepository.findById(temaDto.getIdTema())
-                .orElseThrow(() -> new RuntimeException("Leccion no encontrada")));
+        tema.setRecursoMultimedia(s3Object1);
+        tema.setLeccion(leccion);
         tema.setEstado(true);
         temaRepository.save(tema);
     }
@@ -113,13 +125,11 @@ public class TemaService {
         S3ObjectDto s3ObjectDto = recursoMultimediaService.uploadFile(file);
         S3Object s3Object = s3ObjectRepository.findById(s3ObjectDto.getS3ObjectId()).get();
 
-        Tema tema = temaRepository.getOne(temaDto.getIdTema());
+        Tema tema = temaRepository.findById(temaDto.getIdTema()).get();
         tema.setTitulo(temaDto.getTitulo());
         tema.setOrden(temaDto.getOrden());
         tema.setDescripcion(temaDto.getDescripcion());
         tema.setRecursoMultimedia(s3Object);
-        tema.setLeccion(leccionRepository.findById(temaDto.getIdTema())
-                .orElseThrow(() -> new RuntimeException("Leccion no encontrada")));
         temaRepository.save(tema);
     }
 

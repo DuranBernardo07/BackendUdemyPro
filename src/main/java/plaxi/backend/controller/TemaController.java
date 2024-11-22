@@ -54,8 +54,9 @@ public class TemaController {
 
     // Obtener temas por curso
     @GetMapping("/curso/{cursoId}")
-    public ResponseEntity<Page<TemaDto>> getTemasByCurso(@RequestBody PaginadoDto paginadoDto, @PathVariable Long cursoId) {
+    public ResponseEntity<Page<TemaDto>> getTemasByCurso(@PathVariable Long cursoId) {
         logger.info("Solicitud para obtener temas del curso con ID: {}", cursoId);
+        PaginadoDto paginadoDto = new PaginadoDto(0, 10, "idTema", "asc");
         try {
             Page<TemaDto> temas = temaService.getTemasByCurso(cursoId, paginadoDto);
             logger.info("Temas del curso con ID: {} obtenidos exitosamente", cursoId);
@@ -79,11 +80,12 @@ public class TemaController {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
         }
         try {
+            logger.info("Creando tema..."+temaDto.getLeccionId());
             temaService.createTema(temaDto, file);
             logger.info("Tema creado exitosamente");
             return ResponseEntity.ok("Tema creado exitosamente");
         } catch (Exception e) {
-            logger.error("Error al crear el tema: {}", e.getMessage());
+            logger.error("Error al crear el tema: {}", e);
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
         }
     }

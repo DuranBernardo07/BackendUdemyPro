@@ -38,7 +38,7 @@ public class LeccionController {
     }
 
     // Obtener leccion por ID
-    @PostMapping("/{idLeccion}")
+    @GetMapping("/{idLeccion}")
     public ResponseEntity<LeccionDto> getLeccionById(@PathVariable Long idLeccion) {
         logger.info("Solicitud para obtener la leccion con ID: {}", idLeccion);
         try {
@@ -56,7 +56,7 @@ public class LeccionController {
     public ResponseEntity<Page<LeccionDto>> getLeccionesByCurso(@PathVariable Long cursoId) {
         logger.info("Solicitud para obtener lecciones del curso con ID: {}", cursoId);
         try {
-            PaginadoDto paginadoDto = new PaginadoDto(1, 10, "idLeccion", "asc");
+            PaginadoDto paginadoDto = new PaginadoDto(0, 10, "idLeccion", "asc");
             Page<LeccionDto> lecciones = leccionService.getLeccionesByCurso(cursoId, paginadoDto);
             logger.info("Lecciones obtenidas exitosamente para el curso con ID: {}", cursoId);
             return ResponseEntity.ok(lecciones);
@@ -86,6 +86,7 @@ public class LeccionController {
     public ResponseEntity<String> updateLeccion(@RequestBody LeccionDto leccionDto) {
         logger.info("Solicitud para actualizar la leccion con ID: {}", leccionDto.getIdLeccion());
         try {
+            logger.info("Actualizando leccion...", leccionDto.getIdLeccion());
             leccionService.updateLeccion(leccionDto);
             logger.info("Leccion actualizada exitosamente.");
             return ResponseEntity.ok("Leccion actualizada exitosamente.");

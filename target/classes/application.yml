@@ -38,9 +38,8 @@ spring:
       max-request-size: 1GB
 minio:
   url: http://localhost:8082
-#  access-key: minioadmin
-#  secret-key: minioadmin
+  #  access-key: minioadmin
+  #  secret-key: minioadmin
   access-key: yourusername
   secret-key: yourpassword
   bucket-name: fotoperfil
-
