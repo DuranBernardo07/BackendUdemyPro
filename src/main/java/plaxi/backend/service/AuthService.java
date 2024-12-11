@@ -36,6 +36,11 @@ public class AuthService {
             throw new AuthException("El nombre de usuario ya está en uso.");
         }
 
+        // verificar si el correo ya está en uso
+        if (usuarioRepository.findByGmail(usuarioDto.getGmail()).isPresent()) {
+            throw new AuthException("El correo electrónico ya está en uso.");
+        }
+
         String encryptedPassword = BCrypt.hashpw(usuarioDto.getPassword(), BCrypt.gensalt());
 
         Persona persona = new Persona();

@@ -3,8 +3,10 @@ package plaxi.backend.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import plaxi.backend.dto.ActualizarCursoDto;
+import plaxi.backend.dto.ActualizarCursoDto2;
 import plaxi.backend.dto.CursoDto;
 import plaxi.backend.dto.S3ObjectDto;
+import plaxi.backend.entity.Categoria;
 import plaxi.backend.entity.Curso;
 import plaxi.backend.entity.S3Object;
 import plaxi.backend.entity.Usuario;
@@ -106,23 +108,22 @@ public class CursoService {
     }
 
     // Actualizar los detalles de un curso
-    public ActualizarCursoDto updateCurso(Long idCurso, ActualizarCursoDto cursoDto) throws Exception {
-        Curso curso = cursoRepository.findById(idCurso)
-                .orElseThrow(() -> new Exception("Curso no encontrado"));
+    public ActualizarCursoDto2 updateCurso(Long idCurso, ActualizarCursoDto2 cursoDto) throws Exception {
+        Curso curso = cursoRepository.findById(idCurso).get();
 
-        if (!curso.getEstado()) {
-            throw new Exception("El curso ha sido desactivado y no se puede actualizar.");
-        }
+//        if (!curso.getEstado()) {
+//            throw new Exception("El curso ha sido desactivado y no se puede actualizar.");
+//        }
 
         // Validar que la categoría proporcionada exista
-        var categoria = categoriaRepository.findById(cursoDto.getCategoriaId())
-                .orElseThrow(() -> new Exception("Categoría no encontrada"));
+        System.out.println("CategoriaId: " + cursoDto.getCategoriaId());
+        Categoria categoria = categoriaRepository.findByNombre(cursoDto.getCategoriaId());
+
 
         // Si el DTO incluye un archivo de portada, subimos la imagen a MinIO y guardamos el enlace
         if (cursoDto.getPortada() != null && !cursoDto.getPortada().isEmpty()) {
             S3ObjectDto s3ObjectDto = minioService.uploadFile(cursoDto.getPortada());
-            S3Object s3Object = s3ObjectRepository.findById(s3ObjectDto.getS3ObjectId())
-                    .orElseThrow(() -> new Exception("Imagen de portada no encontrada"));
+            S3Object s3Object = s3ObjectRepository.findById(s3ObjectDto.getS3ObjectId()).get();
             curso.setPortada(s3Object);  // Asociamos la imagen de portada al curso
         }
 

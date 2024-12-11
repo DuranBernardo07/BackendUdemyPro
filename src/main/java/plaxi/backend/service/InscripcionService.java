@@ -54,6 +54,13 @@ public class InscripcionService {
         Optional<Curso> cursoOpt = cursoRepository.findById(inscripcionDto.getCursoId());
 
         if (usuarioOpt.isPresent() && cursoOpt.isPresent()) {
+
+            // verificar si el usuario ya está inscrito en el curso
+            Boolean verificarInscripcion = inscripcionRepository.findByUsuarioAndCurso(usuarioOpt.get(), cursoOpt.get());
+            if(verificarInscripcion){
+                throw new IllegalArgumentException("El usuario ya está inscrito en el curso");
+            }
+
             inscripcion.setUsuario(usuarioOpt.get());
             inscripcion.setCurso(cursoOpt.get());
         } else {

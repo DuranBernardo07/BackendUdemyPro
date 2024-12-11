@@ -4,22 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b31b93c9-f966-4184-865c-4048a9f6a392" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+    <list default="true" id="b31b93c9-f966-4184-865c-4048a9f6a392" name="Changes" comment="Ultimas funciones">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/plaxi/backend/config/CorsConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/plaxi/backend/config/CorsConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/plaxi/backend/controller/LeccionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/plaxi/backend/controller/LeccionController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/plaxi/backend/controller/TemaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/plaxi/backend/controller/TemaController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/plaxi/backend/repository/S3ObjectRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/plaxi/backend/repository/S3ObjectRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/plaxi/backend/service/LeccionService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/plaxi/backend/service/LeccionService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/plaxi/backend/service/TemaService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/plaxi/backend/service/TemaService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/plaxi/backend/config/CorsConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/plaxi/backend/config/CorsConfig.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/plaxi/backend/controller/LeccionController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/plaxi/backend/controller/LeccionController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/plaxi/backend/controller/TemaController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/plaxi/backend/controller/TemaController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/plaxi/backend/service/LeccionService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/plaxi/backend/service/LeccionService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/plaxi/backend/service/TemaService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/plaxi/backend/service/TemaService.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,36 +50,36 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "Spring Boot.BackendApplication.executor": "Run",
-    "dart.analysis.tool.window.visible": "false",
-    "git-widget-placeholder": "main",
-    "ignore.virus.scanning.warn.message": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "D:/Plaxi-Backend",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.JavaFX",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;Spring Boot.BackendApplication.executor&quot;: &quot;Run&quot;,
+    &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Plaxi-Backend&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.JavaFX&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "postgresql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;postgresql&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="BackendApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="backend" />
@@ -158,12 +144,35 @@
       <workItem from="1731713402639" duration="1304000" />
       <workItem from="1732156347903" duration="4696000" />
       <workItem from="1732218294058" duration="12477000" />
-      <workItem from="1732308289624" duration="997000" />
+      <workItem from="1732308289624" duration="2862000" />
+      <workItem from="1732321946293" duration="854000" />
+      <workItem from="1732386718352" duration="768000" />
+      <workItem from="1732465563467" duration="6675000" />
+      <workItem from="1732577515062" duration="3704000" />
+      <workItem from="1732654923865" duration="1002000" />
+      <workItem from="1732663658438" duration="4681000" />
+      <workItem from="1732735602109" duration="1880000" />
+      <workItem from="1733093021539" duration="3483000" />
+      <workItem from="1733866093606" duration="2178000" />
+      <workItem from="1733950726072" duration="1508000" />
     </task>
+    <task id="LOCAL-00001" summary="Ultimas funciones">
+      <option name="closed" value="true" />
+      <created>1732309362015</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1732309362015</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Ultimas funciones" />
+    <option name="LAST_COMMIT_MESSAGE" value="Ultimas funciones" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

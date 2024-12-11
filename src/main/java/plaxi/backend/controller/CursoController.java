@@ -7,6 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import plaxi.backend.dto.ActualizarCursoDto;
+import plaxi.backend.dto.ActualizarCursoDto2;
 import plaxi.backend.dto.CursoDto;
 import plaxi.backend.service.CursoService;
 
@@ -79,17 +80,14 @@ public class CursoController {
 
 
     // Actualizar un curso por ID
-    @PutMapping("/{idCurso}")
-    public ResponseEntity<ActualizarCursoDto> updateCurso(@PathVariable Long idCurso, @RequestBody ActualizarCursoDto cursoDto) {
+    @PutMapping("/update/{idCurso}")
+    public ResponseEntity<ActualizarCursoDto2> updateCurso(@PathVariable String idCurso, @RequestBody ActualizarCursoDto2 cursoDto) throws Exception {
         logger.info("Solicitud para actualizar el curso con ID: {}", idCurso);
-        try {
-            ActualizarCursoDto cursoActualizado = cursoService.updateCurso(idCurso, cursoDto);
-            logger.info("Curso actualizado exitosamente con ID: {}", idCurso);
-            return ResponseEntity.ok(cursoActualizado);
-        } catch (Exception e) {
-            logger.error("Error al actualizar el curso con ID: {} - {}", idCurso, e.getMessage());
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
-        }
+
+        Long id = Long.parseLong(idCurso);
+        ActualizarCursoDto2 cursoActualizado = cursoService.updateCurso(id, cursoDto);
+        logger.info("Curso actualizado exitosamente con ID: {}", idCurso);
+        return ResponseEntity.ok(cursoActualizado);
     }
 
     // Borrado lógico del curso
